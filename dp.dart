@@ -276,7 +276,7 @@ void main() {
   print(
       "*                                                                   *");
   print(
-      "*                      SCHOOL MANAGEMENT SYSTEM                     *");
+      "*                      STUDENT MANAGEMENT SYSTEM                     *");
   print(
       "*                                                                   *");
   print(
