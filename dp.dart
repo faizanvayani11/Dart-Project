@@ -59,37 +59,34 @@ void show() {
 }
 
 void search() {
-
-  print("\n\n    Press 1 For Search By Student Roll No :");
-  print("     Press 2 For Search By Course ");
-  int ans = int.parse(stdin.readLineSync()!);
-  if (ans == 1 ){
-
   if (total == 0) {
     print("\n\n          NO DATA IS ENTERED");
     print("          ******************\n\n\n");
-  } else {
-    stdout.write(
-        "\n          ENTER THE ROLL NUMBER OF STUDENT WHICH YOU WANT TO SEARCH : ");
-    String rollno = stdin.readLineSync()!;
-    print(
-        "\n          ************************************************************\n");
-    for (int i = 0; i < total; i++) {
-      if (rollno == stdRoll[i]) {
-        print("\n          Name     :  ${stdName[i]}");
-        print("          Roll no  :  ${stdRoll[i]}");
-        print("          Subject  :  ${stdSubj[i]}");
-        print("          Contact  :  ${stdCont[i]}\n\n\n");
-        print("          ************************");
-        print("          * SEARCHING SUCCESSFUL *");
-        print("          ************************\n\n");
+  }
+  print("     Press 1 For Search By Student Roll No :");
+  print("     Press 2 For Search By Course : ");
+  int ans = int.parse(stdin.readLineSync()!);
+  if (ans == 1) {
+    {
+      stdout.write(
+          "\n          ENTER THE ROLL NUMBER OF STUDENT WHICH YOU WANT TO SEARCH : ");
+      String rollno = stdin.readLineSync()!;
+      for (int i = 0; i < total; i++) {
+        if (rollno == stdRoll[i]) {
+          print("\n          Name     :  ${stdName[i]}");
+          print("          Roll no  :  ${stdRoll[i]}");
+          print("          Subject  :  ${stdSubj[i]}");
+          print("          Contact  :  ${stdCont[i]}\n\n\n");
+          print("          ************************");
+          print("          * SEARCHING SUCCESSFUL *");
+          print("          ************************\n\n");
+        }
       }
     }
-    print("         Invalid roll number\n");
-  }
-  }
-  else {
+  } else if (ans == 2) {
     showStudentsByCourse();
+  } else {
+    print("invalid input");
   }
 }
 
@@ -164,7 +161,6 @@ void deleterecord() {
           print("          *******************************\n\n");
         }
       }
-      print("         Invalid roll number\n");
     } else {
       print("          INVALID INPUT");
       print("          *************\n\n");
@@ -208,53 +204,52 @@ login() {
     if ((email == "rasibahmed" && pass == "123456") ||
         (email == "f" && pass == "123") ||
         (email == "huzefa" && pass == "12345678"))
-      // islogin = true;
-      {print("lOGIN SUCCESFULLY\n");
+    // islogin = true;
+    {
+      print("lOGIN SUCCESFULLY\n");
 
-    while (true) {
-      stdout.write("          Press 1 to Input Data\n");
-      stdout.write("          Press 2 to Display Data\n");
-      stdout.write("          Press 3 to Search Data\n");
-      stdout.write("          Press 4 to Update Data\n");
-      stdout.write("          Press 5 to Delete Data\n");
-      stdout.write("          Press 6 to exit\n\n");
-      stdout.write("          Enter Number from 1 to 6 : ");
-      
-      String value = stdin.readLineSync()!;
+      while (true) {
+        stdout.write("          Press 1 to Input Data\n");
+        stdout.write("          Press 2 to Display Data\n");
+        stdout.write("          Press 3 to Search Data\n");
+        stdout.write("          Press 4 to Update Data\n");
+        stdout.write("          Press 5 to Delete Data\n");
+        stdout.write("          Press 6 to exit\n\n");
+        stdout.write("          Enter Number from 1 to 6 : ");
 
-      if (value == "1") {
-        enter();
-      } else if (value == "2") {
-        show();
-      } else if (value == "3") {
-        search();
-      } else if (value == "4") {
-        update();
-      } else if (value == "5") {
-        deleterecord();
-      } 
-       else if (value == "6") {
-        print(
-            "*************************************** MADE BY *************************************");
-        print(
-            "*                                                                                     *");
-        print(
-            "*                                        RASIB                                        *");
-        print(
-            "*                                        FAIZAN                                       *");
-        print(
-            "*                                        HUZAIFA                                      *");
-        print(
-            "*                                                                                     *");
-        print(
-            "******************************* THANK YOU FOR VISITING *********************************");
-        exit(0);
-      
-      } else {
-        print("Invalid input\n");
+        String value = stdin.readLineSync()!;
+
+        if (value == "1") {
+          enter();
+        } else if (value == "2") {
+          show();
+        } else if (value == "3") {
+          search();
+        } else if (value == "4") {
+          update();
+        } else if (value == "5") {
+          deleterecord();
+        } else if (value == "6") {
+          print(
+              "*************************************** MADE BY *************************************");
+          print(
+              "*                                                                                     *");
+          print(
+              "*                                        RASIB                                        *");
+          print(
+              "*                                        FAIZAN                                       *");
+          print(
+              "*                                        HUZAIFA                                      *");
+          print(
+              "*                                                                                     *");
+          print(
+              "******************************* THANK YOU FOR VISITING *********************************");
+          exit(0);
+        } else {
+          print("Invalid input\n");
+        }
       }
-    } }
-    else {
+    } else {
       attempts--;
       print("\nLOGIN FAILED\n");
       print("You have only 4 total tries for login.\n");
@@ -262,13 +257,13 @@ login() {
       if (attempts == 0) {
         print(
             "Try to Remember Your Login Credentials\n If You want to Change your Email and Password ,\n Contact to Developers ");
+      }
     }
   }
 }
-}
 
 void main() {
-  print("\n                            *************");
+  print("\n                          *************");
   print("                            *  WELCOME  *");
   print("                            *************");
   print(
